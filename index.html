@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Controle Financeiro</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://controle-lfederico.netlify.app/imgs/favicon.png" type="image/png"/>
+</head>
+<body>
+    <div id="header-container">
+        <header>
+            <div class="logo-container">
+                <img src="https://controle-lfederico.netlify.app/imgs/Ellipse%2013.png" alt="logo">
+                <h1 class="app-title">Controle financeiro</h1>
+            </div>
+            <div class="menu-mobile"><img id="open-burger" src="https://controle-lfederico.netlify.app/imgs/list.png" alt="menu-mobile"></div>
+            <nav class="nav-container">
+                <a href="#">Cadastro de transações</a>
+                <span>|</span>
+                <a href="#">Limpar dados</a>
+                <span>|</span>
+                <a href="#">Salvar no servidor</a>
+            </nav>
+            <div id="menu-mobile-wrapper" style="display: none;">
+                <div id="btn-close-menu">X</div>
+                <div class="nav-mobile">
+                    <a href="#">Cadastro de transações</a>
+                    <a href="#">Limpar dados</a>
+                    <a href="#">Salvar no servidor</a>
+                </div>
+            </div>
+        </header>
+    </div>
+   <section id="content">
+       <!--FORM-->
+       <div id="form-container">
+            <form method="POST" action="">
+                <p class="transaction-title">Nova transação</p>
+                <div class="input-containers tablet-select">
+                    <label for="transaction-type" class="label-input">Tipo de transação</label>
+                    <select name="transaction-type" id="transaction-type" required>
+                        <option value="">-- Selecione --</option>
+                        <option value="compra">Compra</option>
+                        <option value="venda">Venda</option>
+                    </select>
+                </div>
+                <div class="input-containers tablet-item">
+                    <label for="item-name" class="label-input">Nome da mercadoria</label>
+                    <input id="item-name" type="text" name="product-name" placeholder="Input" required>
+                </div>
+                <div class="input-containers tablet-price">
+                    <label for="product-price" class="label-input">Valor</label>
+                    <input type="number" id="product-price" name="product-price" placeholder="R$ 0,00" required>
+                    <button type="submit" id="btn-transaction">Adicionar transação</button>
+                </div>
+            </form>
+       </div>
+       <!--TABLE-->     
+       <div id="table-container">
+            <table>
+                <p class="table-title">Extrato de transações</p>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="th-align-left">Mercadoria</th>
+                        <th class="element-align-end">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td>Credito</td>
+                        <td class="element-align-end">R$ 12.999,00</td>
+                        </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Debito</td>
+                        <td class="element-align-end">R$ 99,00</td>
+                    </tr>
+                    <tr class="border-double">
+                        <td>+</td>
+                        <td>Credito</td>
+                        <td class="element-align-end">R$ 9,99</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="tr-last">
+                        <td></td>
+                        <td><b>TOTAL</b></td>
+                        <td class="element-align-end" id="final-result"><b>R$12.909,99</b><p id="final-status" class="element-align-end">(LUCRO)</p></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+    
+    <footer></footer>
+
+    <script>
+        // TOGGLE MENU
+        var burger = document.getElementById('open-burger');
+        var menu = document.getElementById('menu-mobile-wrapper');
+        var btnX = document.getElementById('btn-close-menu');
+
+        burger.onclick = () => {
+            (menu.style.display === "none") ? menu.style.display = "block" : menu.style.display = "none";
+        }
+
+        btnX.onclick = () => {
+            (menu.style.display === "block") ? menu.style.display = "none" : menu.style.display = "block";
+        }
+    </script>
+</body>
+</html>
